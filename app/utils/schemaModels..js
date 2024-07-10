@@ -31,4 +31,4 @@ export const ItemModel =
   mongoose.models.Item || mongoose.model("Item", ItemSchema);
 
 export const UserModel =
-  mongoose.models.Item || mongoose.model("User", UserSchema);
+  mongoose.models.User || mongoose.model("User", UserSchema);
