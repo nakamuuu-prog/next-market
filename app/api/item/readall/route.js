@@ -14,3 +14,7 @@ export async function GET() {
     return NextResponse.json({ message: "アイテム読み取り失敗（オール）" });
   }
 }
+
+// Next.jsはデフォルトでリクエストのたびにデータを取得しないようになっている
+// 毎回データ取得するためのおまじない
+export const revalidate = 0;
