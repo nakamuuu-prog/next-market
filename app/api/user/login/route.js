@@ -35,7 +35,6 @@ export async function POST(request) {
       message: "ログイン失敗：ユーザー登録をしてください",
     });
   } catch (error) {
-    console.log(error);
     return NextResponse.json({ message: "ログイン失敗" });
   }
 }

@@ -4,11 +4,8 @@ import { NextResponse } from "next/server";
 // middleware.jsはすべてのやりとり(request、response)の際に必ず経由される
 // => ファイル名はmiddleware2.jsにすると機能しなくなった
 export async function middleware(request) {
-  // ログイン時に発行されたトークンを使用してデコードされたトークンを確認できる
-  const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1b15QGdtYWlsLmNvbSIsImV4cCI6MTcyMDc0MjczMn0.ksSF5Z69ulmTsRp3hBOFDcdxzT8Zy713v_6yJRVdUFc";
   // headerのlocal strageからトークンを取得する
-  // const token = await request.headers.get("Authorization")?.split(" ")[1];
+  const token = await request.headers.get("Authorization")?.split(" ")[1];
 
   if (!token) {
     return NextResponse.json({ message: "トークンがありません" });
