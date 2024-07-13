@@ -1,3 +1,4 @@
+// layout.jsはアプリ全体で適用したいCSSスタイルなどを書き込むファイル
 import { Inter } from "next/font/google";
 import "./globals.css";
 
