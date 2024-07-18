@@ -3,9 +3,23 @@
 import { useState } from "react";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // 参考：stateはまとめて書くこともできる
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  // stateをまとめる場合はスプレッド構文を使ってデータをセットする
+  const handleChange = (e) => {
+    setNewUser({
+      ...newUser,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // バックエンドから値が返ってくる前にJSONに変換しないよう非同期にしておく
   const handleSubmit = async (e) => {
@@ -19,11 +33,13 @@ const Register = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password,
-        }),
+        // stateはすべてnewUserに入っているので、fetchのbodyはnewUserを渡すだけでOK
+        // body: JSON.stringify({
+        //   name: name,
+        //   email: email,
+        //   password: password,
+        // }),
+        body: JSON.stringify(newUser),
       });
       // バックエンドから返された値はストリームという特殊な形式なので、JSONに変換
       const jsonData = await response.json();
@@ -37,22 +53,28 @@ const Register = () => {
       <h1>ユーザー登録</h1>
       <form onSubmit={handleSubmit}>
         <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          // まとめたstateはオブジェクトと同じように値を取得する
+          // value={name}
+          value={newUser.name}
+          // onChange={(e) => setName(e.target.value)}
+          onChange={handleChange}
           type="text"
           name="name"
           placeholder="名前"
         />
         <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          // value={email}
+          value={newUser.email}
+          // onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
           type="text"
           name="email"
           placeholder="メールアドレス"
         />
         <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={newUser.password}
+          // onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
           type="text"
           name="password"
           placeholder="パスワード"
