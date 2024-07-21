@@ -1,7 +1,3 @@
-// 今回はサーバーコンポーネントとして実装していくので、useStateやユーザー操作のonClickなどが使えない
-// クライアントコンポーネントとして機能させるために"use client"と記述することで、それらが使えるようになる
-"use client";
-
 // Next.jsが用意している専用のタグ
 // それぞれ<img>と<a>の高機能版
 import Link from "next/link";

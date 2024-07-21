@@ -1,3 +1,5 @@
+// 今回はサーバーコンポーネントとして実装していくので、useStateやユーザー操作のonClickなどが使えない
+// クライアントコンポーネントとして機能させるために"use client"と記述することで、それらが使えるようになる
 "use client";
 
 import { useState } from "react";
