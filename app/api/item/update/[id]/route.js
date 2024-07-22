@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 export async function PUT(request, context) {
   const reqBody = await request.json();
-  console.log(reqBody);
   try {
     await connectDB();
     const singleItem = await ItemModel.findById(context.params.id);
