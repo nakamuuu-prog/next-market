@@ -3,6 +3,7 @@ import { ItemModel } from "@/app/utils/schemaModels.";
 import { NextResponse } from "next/server";
 
 export async function DELETE(request, context) {
+  const reqBody = await request.json();
   try {
     await connectDB();
     const singleItem = await ItemModel.findById(context.params.id);
