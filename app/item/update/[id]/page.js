@@ -62,7 +62,7 @@ const UpdateItem = (context) => {
   if (loginUserEmail === email) {
     return (
       <div>
-        <h1>アイテム編集</h1>
+        <h1 className="page-title">アイテム編集</h1>
         <form onSubmit={handleSubmit}>
           <input
             value={title}

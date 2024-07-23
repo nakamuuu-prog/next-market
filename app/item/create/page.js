@@ -42,7 +42,7 @@ const CreateItem = () => {
   if (loginUserEmail) {
     return (
       <div>
-        <h1>アイテム作成</h1>
+        <h1 className="page-title">アイテム作成</h1>
         <form onSubmit={handleSubmit}>
           <input
             value={title}

@@ -24,7 +24,7 @@ const getAllItems = async () => {
 const ReadAllItems = async () => {
   const allItems = await getAllItems();
   return (
-    <div>
+    <div className="grid-container-in">
       {/* 配列の中にアイテムが1つ1つオブジェクトとして入っているので取り出す */}
       {allItems.map((item) => (
         // 「Warning: Each child in a list should have a unique "key" prop.」というエラーを回避するために、1つ1つのデータにkeyを設定する必要がある
