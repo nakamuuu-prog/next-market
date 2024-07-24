@@ -15,7 +15,7 @@ export async function middleware(request) {
     // jwtVerifyを使ってトークンの判定を行う
     // 不正なトークンであったり、有効期限が過ぎている場合はエラーになる
     const decodedJwt = await jwtVerify(token, secretKey);
-    console.log("decodedJwt:", decodedJwt);
+    // console.log("decodedJwt:", decodedJwt);
     // 結果
     // decodedJwt: {
     //   payload: { email: 'dummy@gmail.com', exp: 1720742732 },

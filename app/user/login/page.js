@@ -9,7 +9,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log("handleSubmit");
     e.preventDefault();
     try {
       const response = await fetch(
