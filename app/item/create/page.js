@@ -1,5 +1,6 @@
 "use client";
 import useAuth from "@/app/utils/useAuth";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const CreateItem = () => {
@@ -9,6 +10,7 @@ const CreateItem = () => {
   const [description, setDescription] = useState("");
 
   const loginUserEmail = useAuth();
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     try {
@@ -37,6 +39,8 @@ const CreateItem = () => {
 
       const jsonData = await response.json();
       alert(jsonData.message);
+      router.push("/");
+      router.refresh();
     } catch (error) {
       alert("アイテム作成失敗");
     }

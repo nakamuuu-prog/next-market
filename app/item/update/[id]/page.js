@@ -1,5 +1,6 @@
 "use client";
 import useAuth from "@/app/utils/useAuth";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const UpdateItem = (context) => {
@@ -10,6 +11,7 @@ const UpdateItem = (context) => {
   const [email, setEmail] = useState("");
 
   const loginUserEmail = useAuth();
+  const router = useRouter();
 
   // useEffectは特定のタイミングで実行したい操作があるときに使う
   useEffect(() => {
@@ -54,6 +56,8 @@ const UpdateItem = (context) => {
 
       const jsonData = await response.json();
       alert(jsonData.message);
+      router.push("/");
+      router.refresh();
     } catch (error) {
       alert("アイテム編集失敗");
     }
