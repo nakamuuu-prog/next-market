@@ -13,24 +13,27 @@ const CreateItem = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await fetch("http://localhost:3000/api/item/create", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          // Bearerは必須ではない
-          // JWTではBearerが習慣的に使われている
-          // Basic認証であればBasicと書く
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          title: title,
-          price: price,
-          image: image,
-          description: description,
-          email: loginUserEmail,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/item/create`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            // Bearerは必須ではない
+            // JWTではBearerが習慣的に使われている
+            // Basic認証であればBasicと書く
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            title: title,
+            price: price,
+            image: image,
+            description: description,
+            email: loginUserEmail,
+          }),
+        }
+      );
 
       const jsonData = await response.json();
       alert(jsonData.message);

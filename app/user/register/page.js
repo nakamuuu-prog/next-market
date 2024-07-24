@@ -27,20 +27,23 @@ const Register = () => {
     try {
       // データの送信にはfetchを使う
       // responseにはバックエンドから返ってきたNextResponseの値が入る
-      const response = await fetch("http://localhost:3000/api/user/register", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        // stateはすべてnewUserに入っているので、fetchのbodyはnewUserを渡すだけでOK
-        // body: JSON.stringify({
-        //   name: name,
-        //   email: email,
-        //   password: password,
-        // }),
-        body: JSON.stringify(newUser),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/user/register`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          // stateはすべてnewUserに入っているので、fetchのbodyはnewUserを渡すだけでOK
+          // body: JSON.stringify({
+          //   name: name,
+          //   email: email,
+          //   password: password,
+          // }),
+          body: JSON.stringify(newUser),
+        }
+      );
       // バックエンドから返された値はストリームという特殊な形式なので、JSONに変換
       const jsonData = await response.json();
       alert(jsonData.message);
