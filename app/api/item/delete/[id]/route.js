@@ -1,5 +1,5 @@
 import connectDB from "@/app/utils/database";
-import { ItemModel } from "@/app/utils/schemaModels.";
+import { ItemModel } from "@/app/utils/schemaModels";
 import { NextResponse } from "next/server";
 
 export async function DELETE(request, context) {

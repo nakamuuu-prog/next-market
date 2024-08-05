@@ -1,5 +1,5 @@
 import connectDB from "@/app/utils/database";
-import { ItemModel } from "@/app/utils/schemaModels.";
+import { ItemModel } from "@/app/utils/schemaModels";
 import { NextResponse } from "next/server";
 
 // ディレクトリ名を[directoryName]とすることで、URLの末尾を動的に指定することができる(http://localhost:3000/api/item/readsingle/[directoryName])

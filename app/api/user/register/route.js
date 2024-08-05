@@ -1,5 +1,5 @@
 import connectDB from "@/app/utils/database";
-import { UserModel } from "@/app/utils/schemaModels.";
+import { UserModel } from "@/app/utils/schemaModels";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/utils/database";
-import { ItemModel } from "@/app/utils/schemaModels.";
+import { ItemModel } from "@/app/utils/schemaModels";
 
 // メソッド名はCRUDに対応している
 // GET、POST、PUT、DELETEのメソッドを作成すると、それぞれのリクエストに対するレスポンスが返る

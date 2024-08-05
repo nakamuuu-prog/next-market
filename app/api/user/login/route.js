@@ -1,5 +1,5 @@
 import connectDB from "@/app/utils/database";
-import { UserModel } from "@/app/utils/schemaModels.";
+import { UserModel } from "@/app/utils/schemaModels";
 import { SignJWT } from "jose";
 import { NextResponse } from "next/server";
 
